@@ -1,62 +1,4 @@
 
-
-## Table of Contents
-
-1. BOSH
-2. Cloud Foundry (CF CLI & cf curl)
-3. cf-dot
-4. CredHub
-5. UAAC
-6. Ops Manager / SSH / BBR
-7. Git Bash & Linux Utilities
-8. Ruby / YAML
-9. Loops & Shell Automation
-10. Errands
-11. MySQL
-12. AWS S3 (Custom Endpoint)
-13. OpenSSL
-14. Curl
-15. Windows CMD & Shortcuts
-16. Excel Formulas
-
----
-
-## 1. BOSH
-
-### Connect & Environment
-
-```bash
-source /software/bosh-platform/dev/bosh/connect-bosh.sh
-```
-
-```bash
-bosh2 -e bosh-dev deployments
-bosh2 -e bosh-dev -d concourse-dev vms
-```
-
-```bash
-/var/vcap/store/postgres
-```
-
-### Concourse / CredHub Context
-
-```bash
-source /software/bosh-platform/dev/concourse/connect-credhub-concourse.sh
-cat /software/bosh-platform/dev/concourse/connect-credhub-concourse.sh
-```
-
-```bash
-bosh -d concourse-dev vms
-bosh2 -e bosh-dev -d concourse-dev vms
-```
-
-```bash
-bosh2 -e bosh-dev ssh db/0
-bosh2 -e bosh-dev ssh db/0 -c "cd /var/vcap/store"
-```
-
----
-
 ### BOSH Tasks
 
 ```bash
@@ -101,7 +43,7 @@ bosh vms --vitals --json | jq -r '.Tables[].Rows[] | [.instance,.cpu_sys,.cpu_us
 
 ---
 
-## 2. Cloud Foundry (CF)
+## Cloud Foundry (CF)
 
 ### App Stats
 
@@ -206,28 +148,24 @@ cf dot actual-lrp-groups | jq '.instance | select(.state=="CRASHED").process_gui
 
 ---
 
-## 4. CredHub
-
-```bash
-source /software/bosh-platform/dev/concourse/connect-credhub-concourse.sh
-```
+## CredHub
 
 ```bash
 credhub f | grep uaa | grep opsman
 ```
 
 ```bash
-credhub get -n /concourse/uat/opsman-admin-password
-credhub get -n /concourse/concourse_dev_main_password
+credhub get -n PATH
+credhub get -n PATH
 ```
 
 ```bash
-credhub set -n /cf/dev/product-properties/networking_poe_ssl_certs_0_key -t value -v "$(cat dev.apps.cs.sgp.dbs.com.key)"
+credhub set -n /cf/dev/product-properties/networking_poe_ssl_certs_0_key -t value -v "$(X.com.key)"
 ```
 
 ---
 
-## 5. UAAC
+##  UAAC
 
 ```bash
 uaac target <UAA_URL>
@@ -253,7 +191,7 @@ uaac member add healthwatch.admin <user>
 ## 6. Ops Manager / SSH / BBR
 
 ```bash
-ssh -o StrictHostKeyChecking=no -i bbr.pem bbr@10.92.207.2
+ssh -o StrictHostKeyChecking=no -i bbr.pem bbr@10.X.X.X
 ```
 
 ```bash
@@ -266,7 +204,7 @@ Docs:
 
 ---
 
-## 7. Git Bash & Linux
+## Git Bash & Linux
 
 ```bash
 export MY_VAR="example"
@@ -280,7 +218,7 @@ cat urls.txt | while read url; do start "$url"; done
 
 ---
 
-## 8. Ruby / YAML
+## Ruby / YAML
 
 ```bash
 ruby -ryaml -e "p YAML.load(STDIN.read)" < cf-mgmt.yaml
@@ -288,7 +226,7 @@ ruby -ryaml -e "p YAML.load(STDIN.read)" < cf-mgmt.yaml
 
 ---
 
-## 9. Loops & Automation
+## Loops & Automation
 
 ### While Loop
 
@@ -308,7 +246,7 @@ for i in $(bosh ds --column=name | grep iso); do bosh -d $i vms | awk '{print $1
 
 ---
 
-## 10. Errands
+## Errands
 
 ```bash
 BOSH_CLIENT=ops_manager bosh -e <ENV> -d cf run-errand push-apps-manager
@@ -316,7 +254,7 @@ BOSH_CLIENT=ops_manager bosh -e <ENV> -d cf run-errand push-apps-manager
 
 ---
 
-## 11. MySQL
+## MySQL
 
 ```bash
 mysql --defaults-file=/var/vcap/jobs/pxc-mysql/config/mylogin.cnf
@@ -340,7 +278,7 @@ WHERE NAME='events_statements_cpu';
 
 ---
 
-## 12. AWS S3 (Custom Endpoint)
+##  AWS S3 (Custom Endpoint)
 
 ```bash
 aws configure
@@ -354,11 +292,11 @@ aws s3api list-objects --bucket <bucket> --endpoint-url <>
 
 ---
 
-## 13. OpenSSL
+##  OpenSSL
 
 ```bash
-openssl rsa -noout -modulus -in dev.apps.cs.sgp.dbs.com.key | openssl md5
-openssl x509 -noout -modulus -in dev.apps.cs.sgp.dbs.com.cer | openssl md5
+openssl rsa -noout -modulus -in X.com.key | openssl md5
+openssl x509 -noout -modulus -in X.com.cer | openssl md5
 ```
 
 ```bash
@@ -368,10 +306,10 @@ openssl x509 -in certificate.cer -text -noout
 
 ---
 
-## 14. Curl
+## Curl
 
 ```bash
-curl -Ik https://healthwatch.sb.sgp.uat.dbs.corp/login
+curl -Ik https://url.com/login
 ```
 
 ```bash
@@ -380,7 +318,7 @@ curl -k -L -s -o /dev/null -w "%{http_code}" https://your-url.com
 
 ---
 
-## 15. Windows CMD / Shortcuts
+## Windows CMD / Shortcuts
 
 ```text
 Win + V        Clipboard history
@@ -395,7 +333,7 @@ snippingtool /clip
 
 ---
 
-## 16. Excel Formulas
+## Excel Formulas
 
 ```excel
 =XLOOKUP([@Org],APPCODE[Org (in PCF)],APPCODE[LOBT])
