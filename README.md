@@ -336,7 +336,7 @@ snippingtool /clip
 ## Excel Formulas
 
 ```excel
-=XLOOKUP([@Org],APPCODE[Org (in PCF)],APPCODE[LOBT])
+=XLOOKUP([@C1],SHEET2[C1],SHEET2[C2])
 ```
 
 ```excel
