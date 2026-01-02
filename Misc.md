@@ -83,9 +83,6 @@ Run a task:
 
 ## BOSH – Environment & VM Access
 
-Load BOSH environment:
-`source /software/bosh-platform/dev/bosh/connect-bosh.sh`
-
 List deployments:
 `bosh deployments`
 
