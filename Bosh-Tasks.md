@@ -4,30 +4,45 @@
 
 ### List Tasks
 
+```bash
 bosh tasks --recent
-# Lists the most recent 30 BOSH tasks.
+```
+Lists the most recent 30 BOSH tasks.
 
+```bash
 bosh tasks -r=500
-# Lists the last 500 tasks. The number can be any value.
+```
+Lists the last 500 tasks. The number can be any value.
 
+```bash
 bosh tasks
-# Lists all currently running BOSH tasks.
+```
+Lists all currently running BOSH tasks.
+
+---
 
 ### Task Details
 
+```bash
 bosh task <TASK_ID>
-# Shows the overview of a specific task.
+```
+Shows the overview of a specific task.
 
+```bash
 bosh task <TASK_ID> --debug
-# Displays the specific task logs in debug mode.
+```
+Displays the specific task logs in debug mode.
 
+```bash
 bosh task <TASK_ID> --cpi
-# Used to track CPI logs (Cloud Provider Interface logs).
+```
+Used to track CPI logs (Cloud Provider Interface logs).
+
+---
 
 ### Disk Information
 
+```bash
 bosh -d <deployment_name> is -i --column="Disk CIDs"
-# Displays Disk CIDs attached to instances of a deployment.
-
-
-
+```
+Displays Disk CIDs attached to instances of a deployment.
