@@ -1,6 +1,4 @@
 ## Find Apps Using a Specific Buildpack (Cloud Foundry)
-
-```bash
 #!/bin/bash
 
 # Desired buildpack name
@@ -39,4 +37,3 @@ for ORG in $ORGS; do
 done
 
 echo "Report generated: $OUTPUT_FILE"
-```
