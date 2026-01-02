@@ -1,0 +1,33 @@
+# Cloud Foundry
+
+## BOSH Tasks – Clean Notes
+
+### List Tasks
+
+bosh tasks --recent
+# Lists the most recent 30 BOSH tasks.
+
+bosh tasks -r=500
+# Lists the last 500 tasks. The number can be any value.
+
+bosh tasks
+# Lists all currently running BOSH tasks.
+
+### Task Details
+
+bosh task <TASK_ID>
+# Shows the overview of a specific task.
+
+bosh task <TASK_ID> --debug
+# Displays the specific task logs in debug mode.
+
+bosh task <TASK_ID> --cpi
+# Used to track CPI logs (Cloud Provider Interface logs).
+
+### Disk Information
+
+bosh -d <deployment_name> is -i --column="Disk CIDs"
+# Displays Disk CIDs attached to instances of a deployment.
+
+
+
