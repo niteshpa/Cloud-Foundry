@@ -1,8 +1,4 @@
 # ☁️ Cloud Foundry (CF) Command Cheatsheet
-
-A clean, readable Cloud Foundry cheatsheet for daily operations.
-Written for humans. Tested in production. No jargon.
-
 ---
 
 ## General Notes
