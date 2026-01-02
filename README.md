@@ -125,7 +125,7 @@ cf run-task example-app "nc ip port -v" --name task1
 
 ---
 
-## 3. cf-dot
+##  cf-dot
 
 ```bash
 cf dot --help
@@ -188,7 +188,7 @@ uaac member add healthwatch.admin <user>
 ```
 
 
-## 6. Ops Manager / SSH / BBR
+##  Ops Manager / SSH / BBR
 
 ```bash
 ssh -o StrictHostKeyChecking=no -i bbr.pem bbr@10.X.X.X
