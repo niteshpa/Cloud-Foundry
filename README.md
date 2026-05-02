@@ -13,13 +13,11 @@ bosh task <TASK_ID> --debug
 bosh task <TASK_ID> --cpi
 ```
 
-### Disk / Resurrection
-
 ```bash
 bosh -d appMetrics-<DEPLOYMENT_GUID> is -i --column="Disk CIDs"
 bosh -d appMetrics-<DEPLOYMENT_GUID> cck
 ```
-
+###  Resurrection
 ```bash
 bosh update-resurrection on
 bosh curl /resurrection
