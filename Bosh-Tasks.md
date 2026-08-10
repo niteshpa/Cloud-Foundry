@@ -40,9 +40,3 @@ Used to track CPI logs (Cloud Provider Interface logs).
 
 ---
 
-### Disk Information
-
-```bash
-bosh -d <deployment_name> is -i --column="Disk CIDs"
-```
-Displays Disk CIDs attached to instances of a deployment.
