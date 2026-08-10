@@ -101,6 +101,12 @@ Track a task:
 Enable resurrection:
 `bosh update-resurrection on`
 
+### Disk Information
+
+```bash
+bosh -d <deployment_name> is -i --column="Disk CIDs"
+```
+Displays Disk CIDs attached to instances of a deployment.
 ---
 
 ## BOSH – Diagnostics
