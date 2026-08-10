@@ -1,6 +1,6 @@
 # Splunk SPL Query Notes
 
-A reference collection of Splunk Processing Language (SPL) queries covering the `search` command, the `where` command, and the `eval` command — all demonstrated against the **BOTS v3** dataset.
+A reference collection of Splunk Processing Language (SPL) queries covering the `search` command, the `where` command, and the `eval` command
 
 ---
 
